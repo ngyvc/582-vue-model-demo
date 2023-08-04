@@ -1,16 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  OUTSIDE: {{ inputText }}
+  <input type="text" v-model="inputText">
+  <FormComponent v-model="inputText"></FormComponent>
+  <SampleModel v-for="item in items" :key="item" v-model="inputText"></SampleModel>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FormComponent from './components/FormComponent.vue'
+import SampleModel from './components/SampleModel.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    FormComponent,
+    SampleModel
+  },
+  data () {
+    return {
+      inputText: '',
+      items: ['a', 'b', 'c']
+    }
+  },
 }
 </script>
 
